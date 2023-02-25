@@ -33,18 +33,18 @@
 - **1. 유튜브 동영상**
     - 자막 있는 영상은 자막, 자막 없는 영상은 음성 인식 이용
     - 특정 시간(5분) 기준으로 Segment를 나눈 다음 Segment별로 1차 요약 진행
-    - 1차 요약 결과물 생성
-    - Segmentation 참고: [유튜브 동영상을 Segmented Transcript로 만들어주는 라이브러라](https://pypi.org/project/youtube-transcript-api/)
+    - 규격화된 1차 요약 결과물 생성
+    - Segmentation 참고: [유튜브 동영상을 Segmented Transcript로 만들어주는 라이브러fl](https://pypi.org/project/youtube-transcript-api/)
 - **2. 글**
-    - 각 링크에 맞는 scraper code 제작
+    - 각 웹사이트 링크에 맞는 scraper code 제작
     - beautlfulsoup4 또는 selenium 라이브러리 사용
-    - 4,000자를 기준으로 Segment를 나눈 다음 Segment별로 1차 요약 진행
-    - 1차 요약 결과물 생성
+    - 특정 글자수(4,000자)를 기준으로 Segment를 나눈 다음 Segment별로 1차 요약 진행
+    - 규격화된 1차 요약 결과물 생성
 - **3. 팟캐스트, 트위터 스페이스 요약**
     - 음성인식 이용
     - [트위터 스페이스 라이브러리](https://github.com/adwisatya/TwitterSpaces2Text)
     - 특정 시간(5분?)을 기준으로 Segment를 나눈 다음 Segment별로 1차 요약 진행
-    - 1차 요약 결과물 생성
+    - 규격화된 1차 요약 결과물 생성
 - **4. 요약문 생성**
     - [OpenAI 라이브러리 이용](https://pypi.org/project/openai/)
     - 1차 요약문 Segment 개수에 따라 요약문의 크기를 자동으로 조절하는 기능 추가 ex) 1차 요약의 Segment가 5개가 넘으면 2개의 문단으로 요약
@@ -64,8 +64,9 @@
 이 프로젝트는 최대한 빠른 시간 내에 완료될 것이며 다음의 중간 결과물을 가질 것입니다:
 
 - 1 ~ 3번까지 각자 맡아서 진행
-- 4번 요약문을 만들기 위해 1 ~ 3번의 
-- 6번은 제가 만들 예정
+- 4번 요약문을 만들기 위해 1 ~ 3번의 1차 요약문 결과는 같은 포맷이어야 함
+- 1 ~ 3번에서 나온 1차 요약문 포맷을 기준으로 4 ~ 5번 진행
+- 6번에 필요한 텔레그램 서버는 제가 만들 예정
 
 ## 예산
 
