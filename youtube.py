@@ -7,7 +7,7 @@ import time
 load_dotenv()
 openai.api_key = os.environ['OPENAI_API_KEY']
 
-video_id = "CfDZHhsby3s"
+video_id = "tFHiXljBDj0"
 transcript = YouTubeTranscriptApi.get_transcript(video_id)
 
 # Segment size for sub-summarization. Default is 5 minutes. For videos with a lot of people speaking at once, or videos where the speaker(s) speak especially fast, you may want to reduce this.
@@ -30,6 +30,8 @@ for line in transcript:
 
 for i in range(len(transcript_segments)):
     transcript_segments[i] = " ".join(transcript_segments[i])
+
+print(transcript_segments)
 
 # For each segment of the transcript, summarize
 transcript_segment_summaries = []
