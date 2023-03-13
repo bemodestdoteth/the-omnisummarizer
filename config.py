@@ -9,25 +9,27 @@ import time
 
 load_dotenv()
 
-def summary_decorator(func):
-    def inner(url, user_agent):
+def summary_decorator(func): 
+    async def inner(url, user_agent):
+        load_dotenv()
+        openai.api_key = os.environ['OPENAI_API_KEY']
+
         print("-----------------------------------------")
         print(f"Browsing {url}")
         print("-----------------------------------------")
 
-        full_pages = func(url, user_agent)
-        load_dotenv()
-        openai.api_key = os.environ['OPENAI_API_KEY']
+        full_pages = await func(url, user_agent)
 
         if len(full_pages) >= 72500:
             midpoint = len(full_pages) // 2
             full_pages = (full_pages[:midpoint], full_pages[midpoint:])
         else:
-            full_pages = tuple(full_pages)
-                        
+            full_pages = (full_pages, )
+        print(full_pages)
         segment_size = 2500
         summaries = []
         for full_page in full_pages:
+            print(len(full_page))
             # Convert the transcript list object to plaintext so that we can use it with OpenAI
             transcript_segments = []
             cutoff = 0
